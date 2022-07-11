@@ -1,5 +1,6 @@
 import drivers.DriverSingleton;
 import org.openqa.selenium.WebDriver;
+import utils.FrameworkProperties;
 
 import java.util.concurrent.TimeUnit;
 
@@ -7,7 +8,8 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
 
-        DriverSingleton driverSingleton = DriverSingleton.getInstance();
+        FrameworkProperties frameworkProperties = new FrameworkProperties();
+        DriverSingleton driverSingleton = DriverSingleton.getInstance(frameworkProperties.getProperty("browser"));
         WebDriver driver = DriverSingleton.getDriver();
 
         driver.get("http://automationpractice.com");
