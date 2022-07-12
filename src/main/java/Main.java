@@ -1,5 +1,6 @@
 import drivers.DriverSingleton;
 import org.openqa.selenium.WebDriver;
+import pages.HomePage;
 import utils.FrameworkProperties;
 
 import java.util.concurrent.TimeUnit;
@@ -13,8 +14,11 @@ public class Main {
         WebDriver driver = DriverSingleton.getDriver();
 
         driver.get("http://automationpractice.com");
-        TimeUnit.SECONDS.sleep(2);
 
-        DriverSingleton.closeObjectInstance();
+        HomePage homePage = new HomePage();
+        homePage.addFirstElementToCart();
+        homePage.addSecondCElementToCart();
+
+
     }
 }

@@ -3,6 +3,7 @@ package pages;
 import drivers.DriverSingleton;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -35,10 +36,21 @@ public class HomePage {
     @FindBy(css = "#layer_cart > div.clearfix > div.layer_cart_cart.col-xs-12.col-md-6 > div.button-container > a")
     private WebElement proceedToTheCheckoutBtn;
 
+    @FindBy(css = "#homefeatured > li.ajax_block_product.col-xs-12.col-sm-4.col-md-3.first-in-line.first-item-of-tablet-line.first-item-of-mobile-line")
+    private WebElement firstElement;
+
+    @FindBy(css = "#homefeatured > li:nth-child(2)")
+    private WebElement secondElement;
+
     public void addFirstElementToCart() {
-        addToCartSecond.click();
+        Actions hover = new Actions(driver);
+        hover.moveToElement(firstElement).build().perform();
+
+        addToCartFirst.click();
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Constants.TIMEOUT));
         wait.until(ExpectedConditions.elementToBeClickable(continueShoppingBtn));
+
         continueShoppingBtn.click();
 
         if (cart.getText().contains(Constants.CART_QUANTITY)) {
@@ -49,9 +61,14 @@ public class HomePage {
     }
 
     public void addSecondCElementToCart() {
+        Actions hover = new Actions(driver);
+        hover.moveToElement(secondElement).build().perform();
+
         addToCartSecond.click();
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Constants.TIMEOUT));
         wait.until(ExpectedConditions.elementToBeClickable(proceedToTheCheckoutBtn));
+
         proceedToTheCheckoutBtn.click();
     }
 
