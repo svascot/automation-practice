@@ -9,4 +9,8 @@ public class Constants {
     public static final String CHROME = "Chrome";
     public static final String FIREFOX = "Firefox";
     public static final String PHANTOMJS = "PhantomJs";
+    public static final int TIMEOUT = 15;
+
+    // HomePage
+    public static final String CART_QUANTITY = "1 Product";
 }
