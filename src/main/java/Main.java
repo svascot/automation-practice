@@ -14,7 +14,7 @@ public class Main {
         DriverSingleton driverSingleton = DriverSingleton.getInstance(frameworkProperties.getProperty("browser"));
         WebDriver driver = DriverSingleton.getDriver();
 
-        driver.get("http://automationpractice.com");
+        driver.get(Constants.URL);
 
         HomePage homePage = new HomePage();
         homePage.addFirstElementToCart();

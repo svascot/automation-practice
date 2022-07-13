@@ -5,13 +5,20 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.Constants;
 import utils.Utils;
+
+import java.time.Duration;
+
+import static utils.Constants.TIMEOUT;
 
 public class SignInPage {
 
     private WebDriver driver;
 
-    public SignInPage () {
+    public SignInPage() {
         this.driver = DriverSingleton.getDriver();
         PageFactory.initElements(driver, this);
     }
@@ -31,13 +38,17 @@ public class SignInPage {
     @FindBy(id = "SubmitCreate")
     private WebElement signUpBtn;
 
-    public void logIn (String email, String password) {
-       signInEmail.sendKeys(Utils.decoded64(email));
-       signInPassword.sendKeys(Utils.decoded64(password));
-       signInBtn.click();
+    public void logIn(String email, String password) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT));
+        wait.until(ExpectedConditions.visibilityOf(signInEmail));
+
+        signInEmail.sendKeys(Utils.decoded64(email));
+        signInPassword.sendKeys(Utils.decoded64(password));
+
+        signInBtn.click();
     }
 
-    public void signUp (String email) {
+    public void signUp(String email) {
         signUpEmail.sendKeys(email);
         signUpBtn.click();
     }
