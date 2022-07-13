@@ -5,12 +5,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.Constants;
+
+import java.time.Duration;
 
 public class CheckoutPage {
 
     private WebDriver driver;
 
-    private CheckoutPage() {
+    public CheckoutPage() {
         driver = DriverSingleton.getDriver();
         PageFactory.initElements(driver, this);
     }
@@ -38,5 +43,46 @@ public class CheckoutPage {
 
     @FindBy(css = "#center_column > div > p > strong")
     private WebElement orderConfirmationMessage;
+
+    public Boolean checkTitle(String title) {
+        return pageTitle.getText().equals(title);
+    }
+
+    public void goToCheckout() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Constants.TIMEOUT));
+        wait.until(ExpectedConditions.elementToBeClickable(checkoutSummaryBtn));
+        checkoutSummaryBtn.click();
+    }
+
+    public void confirmAddress() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Constants.TIMEOUT));
+        wait.until(ExpectedConditions.elementToBeClickable(checkoutConfirmAddressBtn));
+        checkoutConfirmAddressBtn.click();
+    }
+
+    public void confirmShipping() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Constants.TIMEOUT));
+        wait.until(ExpectedConditions.elementToBeClickable(checkoutConfirmShippingBtn));
+        confirmShippingCheckBox.click();
+        checkoutConfirmShippingBtn.click();
+    }
+
+    public void payByBankWire() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Constants.TIMEOUT));
+        wait.until(ExpectedConditions.elementToBeClickable(payByBankWireOption));
+        payByBankWireOption.click();
+    }
+
+    public void confirmFinalOrder() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Constants.TIMEOUT));
+        wait.until(ExpectedConditions.elementToBeClickable(confirmOrderBtn));
+        confirmOrderBtn.click();
+    }
+
+    public Boolean checkOrderConfirmationMessage(String message) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Constants.TIMEOUT));
+        wait.until(ExpectedConditions.elementToBeClickable(orderConfirmationMessage));
+        return orderConfirmationMessage.getText().equals(message);
+    }
 
 }

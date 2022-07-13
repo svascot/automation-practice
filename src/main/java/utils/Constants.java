@@ -13,4 +13,9 @@ public class Constants {
 
     // HomePage
     public static final String CART_QUANTITY = "1 Product";
+
+    // Checkout page
+    public static final String COMPLETE_ORDER_MESSAGE = "Your order on My Store is complete.";
+    public static final String EMAIL = "email";
+    public static final String PASSWORD = "password";
 }
