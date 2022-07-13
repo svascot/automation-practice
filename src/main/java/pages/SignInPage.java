@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utils.Utils;
 
 public class SignInPage {
 
@@ -31,8 +32,8 @@ public class SignInPage {
     private WebElement signUpBtn;
 
     public void logIn (String email, String password) {
-       signInEmail.sendKeys(email);
-       signInPassword.sendKeys(password);
+       signInEmail.sendKeys(Utils.decoded64(email));
+       signInPassword.sendKeys(Utils.decoded64(password));
        signInBtn.click();
     }
 
