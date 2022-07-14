@@ -76,7 +76,7 @@ public class HomePage {
         }
     }
 
-    public void addSecondCElementToCart() {
+    public void addSecondElementToCartAndProceedToCheckout() {
         Actions hover = new Actions(driver);
         hover.moveToElement(secondElement).build().perform();
 

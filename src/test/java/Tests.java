@@ -40,5 +40,12 @@ public class Tests {
         assertEquals(frameworkProperties.getProperty(USERNAME), homePage.getUsername());
     }
 
+    @Test
+    public void testAddElementsToCart() {
+        driver.get(URL);
+        homePage.addFirstElementToCart();
+        homePage.addSecondElementToCartAndProceedToCheckout();
+        assertEquals(SUMMARY_PRODUCTS_QUANTITY, checkoutPage.getSummaryProductsQuantity());
+    }
 
 }

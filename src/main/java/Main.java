@@ -18,7 +18,7 @@ public class Main {
 
         HomePage homePage = new HomePage();
         homePage.addFirstElementToCart();
-        homePage.addSecondCElementToCart();
+        homePage.addSecondElementToCartAndProceedToCheckout();
 
         CheckoutPage checkoutPage = new CheckoutPage();
         checkoutPage.goToCheckout();
