@@ -82,10 +82,10 @@ public class CheckoutPage {
         confirmOrderBtn.click();
     }
 
-    public Boolean checkOrderConfirmationMessage(String message) {
+    public String getOrderConfirmationMessage() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Constants.TIMEOUT));
         wait.until(ExpectedConditions.elementToBeClickable(orderConfirmationMessage));
-        return orderConfirmationMessage.getText().equals(message);
+        return orderConfirmationMessage.getText();
     }
 
     public String getSummaryProductsQuantity() {

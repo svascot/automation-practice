@@ -30,7 +30,7 @@ public class Main {
         checkoutPage.confirmShipping();
         checkoutPage.payByBankWire();
         checkoutPage.confirmFinalOrder();
-        if (checkoutPage.checkOrderConfirmationMessage(Constants.COMPLETE_ORDER_MESSAGE)) {
+        if (checkoutPage.getOrderConfirmationMessage().equals(Constants.COMPLETE_ORDER_MESSAGE)) {
             System.out.println("Test case completed");
         }
 
