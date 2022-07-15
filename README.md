@@ -4,11 +4,14 @@ The intention of this project is to automate some features of
 [automationpractice.com](http://automationpractice.com/) following [Automation Testing Masterclass](https://www.udemy.com/course/automation-testing-masterclass/) course.
 
 This project perform these test cases:
-* Sign in with an account, to test sign-in Page.
-* Add a few items to the cart.
-* Proceed with the checkout.
-* Search form a products in the search bar. (This is a list of products)
+* Tests class:
+  * Sign in with an account, to test sign-in Page.
+  * Add a few items to the cart.
+  * Proceed with the checkout.
+* SearchTest class:
+  * Search form a products in the search bar. (This use a list of products to perform many tests).
 
+To take screenshots use `Utils.takeScreenshot(name)` where `name` will be a meaningful name and will be completed with the method time of execution. The screenshot are stored in `screenshots/`.
 
 ## WebDrivers
 Download the WebDrivers and place them into `src/main/resources/drivers` 
