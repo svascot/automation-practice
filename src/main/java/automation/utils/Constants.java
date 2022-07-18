@@ -1,4 +1,4 @@
-package utils;
+package automation.utils;
 
 public class Constants {
 

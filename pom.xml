@@ -12,17 +12,16 @@
         <maven.compiler.source>18</maven.compiler.source>
         <maven.compiler.target>18</maven.compiler.target>
         <spring.framework.version>4.3.12.RELEASE</spring.framework.version>
+        <cucumber.version>2.1.0</cucumber.version>
+        <cucumber.spring.version>1.2.5</cucumber.spring.version>
     </properties>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.3.0</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.github.jesg/phantomjsdriver -->
         <dependency>
             <groupId>com.github.jesg</groupId>
             <artifactId>phantomjsdriver</artifactId>
@@ -34,7 +33,6 @@
             <version>4.13</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
@@ -55,6 +53,23 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
             <version>${spring.framework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-spring</artifactId>
+            <version>${cucumber.spring.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

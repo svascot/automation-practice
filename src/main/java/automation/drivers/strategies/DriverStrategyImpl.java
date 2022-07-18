@@ -1,6 +1,6 @@
-package drivers.strategies;
+package automation.drivers.strategies;
 
-import utils.Constants;
+import automation.utils.Constants;
 
 public class DriverStrategyImpl {
 

@@ -1,4 +1,4 @@
-package utils;
+package automation.utils;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
