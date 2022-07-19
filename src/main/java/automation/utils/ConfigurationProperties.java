@@ -5,19 +5,19 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 @Component
-@PropertySource("framework.properties")
+@PropertySource("classpath:framework.properties")
 public class ConfigurationProperties {
 
     @Value("${browser}")
     private String browser;
 
-    @Value("email")
+    @Value("${email}")
     private String email;
 
-    @Value("password")
+    @Value("${password}")
     private String password;
 
-    @Value("username")
+    @Value("${username}")
     private String username;
 
     public String getBrowser() {

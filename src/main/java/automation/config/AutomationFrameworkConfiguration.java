@@ -1,9 +1,9 @@
 package automation.config;
 
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Configuration;
 
-@Component
+@Configuration
 @ComponentScan("automation")
 public class AutomationFrameworkConfiguration {
 
