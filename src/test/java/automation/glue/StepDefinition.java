@@ -7,6 +7,7 @@ import automation.pages.HomePage;
 import automation.pages.SignInPage;
 import automation.utils.ConfigurationProperties;
 import automation.utils.Constants;
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -31,10 +32,16 @@ public class StepDefinition {
 
     @Before
     public void initializeObjects() {
-        DriverSingleton.getInstance(configurationProperties.getBrowser());
+//        DriverSingleton.getInstance(configurationProperties.getBrowser());
+        DriverSingleton.getInstance(Constants.CHROME);
         homePage = new HomePage();
         signInPage = new SignInPage();
         checkoutPage = new CheckoutPage();
+    }
+
+    @After
+    public static void closeObjects() {
+        DriverSingleton.closeObjectInstance();
     }
 
     @Given("^I go to the Website")
@@ -50,12 +57,14 @@ public class StepDefinition {
 
     @And("^I specify my credentials and click Login")
     public void i_specify_my_credentials_and_click_Login() {
-        signInPage.logIn(configurationProperties.getEmail(), configurationProperties.getPassword());
+//        signInPage.logIn(configurationProperties.getEmail(), configurationProperties.getPassword());
+        signInPage.logIn("c3Zhc2NvdEBnbWFpbC5jb20=", "MTIzNDU2Nzg=");
     }
 
     @Then("^I can log into the website")
     public void i_can_log_into_the_website() {
-        assertEquals(configurationProperties.getUsername(), homePage.getUsername());
+//        assertEquals(configurationProperties.getUsername(), homePage.getUsername());
+        assertEquals("Santiago Vasco", homePage.getUsername());
     }
 
 }
