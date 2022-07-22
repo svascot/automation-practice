@@ -11,6 +11,9 @@ import java.time.LocalTime;
 import java.util.Base64;
 
 public class Utils {
+
+    public static int testCount = 0;
+
     public static String decoded64(String encodedStr) {
         Base64.Decoder decoder = Base64.getDecoder();
         return new String(decoder.decode(encodedStr.getBytes()));
