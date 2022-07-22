@@ -6,6 +6,8 @@ The intention of this project is to automate some features of
 To run the test cases execute the class `src/test/java/automation/RunTests.java`
 The cucumber report is in `target/cucumber-reports/report.html`.
 
+This project implements ExtentReports, the report is in `report/TestReport.html`.
+
 This project perform these test cases:
 * Tests cases:
   * Sign in with an account, to test sign-in Page.
