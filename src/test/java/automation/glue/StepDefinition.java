@@ -19,12 +19,14 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
 import static org.junit.Assert.assertTrue;
 
+@Slf4j
 @ContextConfiguration(classes = AutomationFrameworkConfiguration.class)
 public class StepDefinition {
 
@@ -49,6 +51,7 @@ public class StepDefinition {
 
         TestCases[] testCases = TestCases.values();
         test = report.startTest(testCases[Utils.testCount].getTestName());
+        log.info("Test {} has started.", test.getTest().getName());
         Utils.testCount++;
     }
 
@@ -56,6 +59,7 @@ public class StepDefinition {
     public void closeObjects() {
         report.endTest(test);
         report.flush();
+        log.info("Test {} has ended.", test.getTest().getName());
     }
 
     @AfterAll
